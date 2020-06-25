@@ -5,6 +5,7 @@ from fastapi import Header,File, Body,Query, UploadFile
 from pydantic import BaseModel,EmailStr
 import socket
 import smtplib
+import dns.resolver
 
 html = """
 <html> 
@@ -35,6 +36,9 @@ async def send_email(email: str) -> JSONResponse:
 
 
 def check_mail(mail):
+    records = dns.resolver.query('emailhippo.com', 'MX')
+    mxRecord = records[0].exchange
+    mxRecord = str(mxRecord)
     # Get local server hostname
     host = socket.gethostname()
 
@@ -46,7 +50,7 @@ def check_mail(mail):
     server.connect(mxRecord)
     server.helo(host)
     server.mail('me@domain.com')
-    code, message = server.rcpt(str(addressToVerify))
+    code, message = server.rcpt(str(mail))
     server.quit()
     if code == 250:
         return True
