@@ -1,5 +1,5 @@
 from fastapi import Depends, FastAPI, Header, HTTPException
-from app.routers import authentication, sports
+from app.routers import authentication, sports, locations
 from sqlalchemy.orm import Session
 
 from .db.database import SessionLocal, engine
@@ -32,4 +32,11 @@ app.include_router(
     prefix="/sports",
     tags=["sports"],
     responses={404: {"description": "Not found"}},
+)
+
+app.include_router(
+    locations.locations,
+    prefix="/location",
+    tags=["location"],
+    responses={404: {"description": "Not found"}}
 )

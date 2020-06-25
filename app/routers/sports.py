@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Response, status
 from fastapi.responses import JSONResponse
-from ..db.connect_db import get_db
 from ..db.schemas import sports_schema
 from ..db.crud import sporstcrud
 import requests, json
 from sqlalchemy.orm import Session
+from ..db.connect_db import get_db
 from ..db.models import sportsmodel
 
 sports = APIRouter()

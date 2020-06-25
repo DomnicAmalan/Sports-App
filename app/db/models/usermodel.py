@@ -7,8 +7,7 @@ from datetime import datetime
 
 class User(Base):
     __tablename__ = "users"
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    Email = Column(String, unique=True, index=True)
+    Email = Column(String, primary_key=True, unique=True, index=True)
     Firstname = Column(String, index=True)
     Lastname = Column(String, index=True)
     Password = Column(String)
