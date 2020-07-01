@@ -36,7 +36,8 @@ async def send_email(email: str) -> JSONResponse:
 
 
 def check_mail(mail):
-    records = dns.resolver.query('emailhippo.com', 'MX')
+    domain = mail.split("@")[1]
+    records = dns.resolver.query(domain, 'MX')
     mxRecord = records[0].exchange
     mxRecord = str(mxRecord)
     # Get local server hostname
@@ -49,7 +50,7 @@ def check_mail(mail):
     # SMTP Conversation
     server.connect(mxRecord)
     server.helo(host)
-    server.mail('me@domain.com')
+    server.mail('amalandomnic@gmail.com')
     code, message = server.rcpt(str(mail))
     server.quit()
     if code == 250:
