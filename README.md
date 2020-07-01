@@ -3,7 +3,7 @@ Sporty
 
 Build Image
 
-dockebuild -t sports .
+docker build -t sports .
 
 Run
 
