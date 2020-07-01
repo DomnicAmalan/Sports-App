@@ -38,6 +38,7 @@ async def check_username(username: str, db: Session = Depends(get_db)):
 
 @authenticate.post('/login', tags=["users"])
 async def login(Login: users_schema.Login, db:Session = Depends(get_db)):
+    print(Login)
     verified = usercrud.login_check(db, Email=Login.Email, Password=Login.Password)
     if verified:
         if verified == "No User Found":
