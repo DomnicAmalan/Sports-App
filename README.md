@@ -1,7 +1,7 @@
 # Sports-App
 Sporty
 
-Installation
+Build Image
 
 dockebuild -t sports .
 
