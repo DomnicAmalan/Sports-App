@@ -1,6 +1,9 @@
 # Sports-App
 Sporty
 
+
+Run with uvicorn app.main:app --reload
+
 Build Image
 
 docker build -t sports .
