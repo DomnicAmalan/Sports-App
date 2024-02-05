@@ -7,7 +7,7 @@ authors = ["Domnic <amalandomnic@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 fastapi_mail = "^0.2.5"
-fastapi = "^0.58.1"
+fastapi = "^0.109.1"
 uvicorn = "^0.11.5"
 sqlalchemy = "^1.3.18"
 psycopg2 = "^2.8.5"
